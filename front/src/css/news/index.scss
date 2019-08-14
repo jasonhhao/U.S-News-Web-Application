@@ -1,0 +1,154 @@
+@import "../common/header";
+@import "../common/init";
+@import "../common/body";
+@import "../common/constants";
+@import "../common/footer";
+@import "../common/news_list";
+
+.main{
+    .wrapper{
+        .main-content-wrapper{
+            .banner-group{
+                width: 100%;
+                height: $banner_height;
+                background: blueviolet;
+                position: relative;
+                overflow: hidden; // hide other banner pics
+                z-index: 0; // makes the banner pics always under the header when scrolling down the page
+
+                .banner-ul{
+                    overflow: hidden;
+                    width: $banner_width*4;
+                    position: absolute;
+                    left: 0px;
+
+                    li{
+                        float: left;
+                        width: $banner_width;
+                        height: $banner_height;
+
+                        img{
+                            width: $banner_width;
+                            height: $banner_height;
+                        }
+
+                    }
+                    
+                    
+                }
+                .arrow{
+                    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+                    font-size: 70px;
+                    color: white;
+                    position: absolute;
+                    top: 50%;
+                    margin-top: -45px;
+                    cursor: pointer;
+                    display: none;
+                }
+                .left-arrow{
+                    left: 20px;
+                }
+                .right-arrow{
+                    right: 20px;
+                }
+                .page-control-group{
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 20px;
+                    .page-control{
+                        margin: 0 auto;
+                        overflow: hidden;
+                        li{
+                            width: 10px;
+                            height: 10px;
+                            border: 1px solid white;
+                            border-radius: 50%;
+                            float: left;
+                            margin: 0 8px;
+                            box-sizing: border-box;
+                            cursor: pointer;
+                            &.active{
+                                background: white;
+                            }
+                        }
+                    }
+
+                }
+
+            }
+        }
+    }
+}
+
+.main{
+    .wrapper{
+        .main-content-wrapper{
+            .list-outer-group{
+                background: white;
+                margin-top: 14px;
+                .list-tab{
+                    height: 66px;
+                    width: 100%;
+                    overflow: hidden;
+                    border: 1px solid $line_color;
+                    border-right: none;
+                    border-left: none;
+
+                    li{
+                        float: left;
+                        padding: 0 10px;
+                        margin-top: 20px;
+
+                        a{
+                            color: $assist_font_color;
+                        }
+
+                        &:first-of-type{
+                                border-left: 5px solid $theme_color;
+                        }
+
+                        &.active{
+                            a{
+                                color: $main_font_color;
+                            }
+                        }
+                    }
+
+                }
+
+                .list-inner-group{
+                    @include news_list;
+                }
+
+                .load-more-group{
+                    padding: 20px 0;
+                    text-align: center;
+                    .load-more{
+                        width: 402px;
+                        height: 40px;
+                        background: #d2dcea;
+                        color: #6d85ac;
+                        border: none;
+                        outline: none;
+                        cursor: pointer;
+
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

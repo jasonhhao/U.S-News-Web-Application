@@ -1,0 +1,103 @@
+{% extends 'cms/base.html' %}
+
+{% block title %}
+    {% if news %}
+        Edit News
+    {% else %}
+        Public News
+    {% endif %}
+
+{% endblock %}
+
+{% block head %}
+    <script src="{% static 'js/write_news.min.js' %}"></script>
+{% endblock %}
+
+
+{% block content-header %}
+
+    {% if news %}
+        <h1>Edit News</h1>
+    {% else %}
+        <h1>Public News</h1>
+    {% endif %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <form action="" class="form">
+                    <div class="box-body">
+
+                        <div class="form-group">
+                            <label for="title-form">Title</label>
+                            {% if news %}
+                                <input type="text" class="form-control" name="title" id="title-form" value="{{ news.title }}">
+                            {% else %}
+                                <input type="text" class="form-control" name="title" id="title-form">
+                            {% endif %}
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="category-form">Title</label>
+                            <select name="category" id="category-form" class="form-control">
+                                {% for category in categories %}
+                                    {% if news and news.category_id == category.pk %}
+                                        <option value="{{ category.pk }}" selected>{{ category.name }}</option>
+                                    {% else%}
+                                        <option value="{{ category.pk }}">{{ category.name }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="desc-form">Description</label>
+                            {% if news %}
+                                <input type="text" class="form-control" name="desc" id="desc-form" value="{{ news.desc }}">
+                            {% else %}
+                                <input type="text" class="form-control" name="desc" id="desc-form">
+                            {% endif %}
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="thumbnail-form">Thumbnail</label>
+                            <div class="input-group">
+                                {% if news %}
+                                    <input type="text" class="form-control" name="thumbnail" id="thumbnail-form" value="{{ news.thumbnail }}">
+                                {% else %}
+                                    <input type="text" class="form-control" name="thumbnail" id="thumbnail-form">
+                                {% endif %}
+
+                                <span class="input-group-btn">
+                                    <label for="" class="btn btn-primary btn-file">
+                                        Upload <input hidden type="file" class="btn btn-primary" id="thumbnail-btn">
+                                    </label>
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="content-form">Content</label>
+                            {% if news %}
+                                <textarea class="form-control" name="content" id="" cols="30" rows="10">{{ news.content }}</textarea>
+                            {% else %}
+                                <textarea class="form-control" name="content" id="" cols="30" rows="10"></textarea>
+                            {% endif %}
+                        </div>
+
+                    </div>
+                    <div class="box-footer">
+                        <button id="submit-btn" data-news-id="{{ news.pk }}" class="btn btn-primary pull-right">Public news</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,137 @@
+@import "constants";
+
+
+.footer{
+    font-size: 14px;
+    color: #c9c9c9;
+    padding-top: 20px;
+
+    .top-group{
+        background: #555e67;
+        height: 100px;
+        padding-top: 25px;
+        box-sizing: border-box;
+
+        .top-inner-group{
+            width: $page_width;
+            margin: 0 auto;
+            //overflow: hidden;
+            position: relative;
+
+            .logo-box{
+                width: 168px;
+                height: 54px;
+                float: left;
+                background: url("../../images/logo.png");
+                background-repeat: no-repeat;
+                background-size: 100%;
+            }
+
+            .detail-group{
+                float: left;
+                margin-left: 84px;
+
+                .line1{
+                    overflow: hidden;
+                    .links{
+                        float: left;
+                        overflow: hidden;
+                        li{
+                            float: left;
+                            padding: 0 10px;
+                            border-right: 1px solid #c9c9c9;
+                            a{
+                                color: #c9c9c9;
+                            }
+                            &:first-of-type{
+                                padding-left: 0px;
+                            }
+                            &:last-of-type{
+                                border-right: none;
+                            }
+
+                        }
+                    }
+
+                    .about-us{
+                        float: left;
+                        margin-left: 40px;
+
+                        .title{
+                            float: left;
+                        }
+
+                        .social-group{
+                            float: left;
+                            overflow: hidden;
+                            li{
+                                float: left;
+                                margin-left: 20px;
+                                color: #ffffff;
+
+                                .text{
+                                    margin-left: 30px;
+                                }
+                            }
+
+                            .weixin{
+                                background: url("https://www.xfz.cn/static/build/images/wx-icon.png");
+                                background-repeat: no-repeat;
+                                background-size: 22%;
+                                cursor: pointer;
+
+                                &:hover .wx-qrcode{
+                                    display: block;
+                                }
+
+                                .wx-qrcode{
+                                    height: 204px;
+                                    width: 204px;
+                                    background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/220px-QR_code_for_mobile_English_Wikipedia.svg.png");
+                                    background-size: 100%;
+                                    position: absolute;
+                                    right: 360px;
+                                    top: -220px;
+                                    display: none;
+                                }
+
+
+                            }
+                            .weibo{
+                                background: url("https://www.xfz.cn/static/build/images/wx-icon.png");
+                                background-repeat: no-repeat;
+                                background-size: 22%;
+                                a{
+                                    color: white;
+                                }
+
+                            }
+
+                        }
+                    }
+
+                }
+
+                .line2{
+                    overflow: hidden;
+                    margin-top: 20px;
+                    .address{
+                        float: left;
+                    }
+                    .contact{
+                        margin-left: 40px;
+                        float: left;
+                    }
+                }
+            }
+
+        }
+
+    }
+    .bottom-group{
+        background: #383e44;
+        height: 60px;
+        text-align: center;
+        line-height: 60px;
+    }
+}

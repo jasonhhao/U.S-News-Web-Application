@@ -1,0 +1,49 @@
+{% load news_filters %}
+
+<div class="sidebar-wrapper">
+
+    <div class="platform-group">
+        <div class="title-group">
+            <span class="title">
+                Follow Us
+            </span>
+        </div>
+
+        <div class="focus-group">
+            <ul class="left-group">
+                <li class="facebook"><a href="#" target="_blank">facebook</a></li>
+                <li class="twitter"><a href="#" target="_blank">twitter</a></li>
+                <li class="instagram"><a href="#" target="_blank">instagram</a></li>
+            </ul>
+
+        </div>
+
+
+    </div>
+
+    <div class="hot-news-group">
+        <div class="title-group">
+            <span class="title">Recommend</span>
+        </div>
+
+        <ul class="hot-list-group">
+            {% for news in newses %}
+                <li>
+                    <div class="left-group">
+                        <p class="title"><a href="/news/{{ news.id }}/">{{ news.title }}</a></p>
+                        <p class="more">
+                            <span class="category">{{ news.category.name }}</span>
+                            <span class="pub-time">{{ news.pub_time | time_since }}</span>
+                        </p>
+                    </div>
+
+                    <div class="right-group">
+                        <a href="/news/{{ news.id }}/"><img src="{{ news.thumbnail }}" alt=""></a>
+                    </div>
+                </li>
+
+            {% endfor %}
+        </ul>
+    </div>
+
+</div>

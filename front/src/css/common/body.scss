@@ -1,0 +1,170 @@
+@import "constants";
+
+body{
+    background: #f2f2f2;
+}
+
+.main{
+
+    width: 100%;
+    margin-top: $nav_height + 20px;
+
+
+    .wrapper{
+        width: $page_width;
+        margin: 0 auto;
+        overflow: hidden;
+
+        .main-content-wrapper{
+
+            float: left;
+            width: $main_box_width;
+        }
+
+    }
+}
+
+
+.main{
+    .wrapper{
+        .sidebar-wrapper{
+            float: right;
+            width: 356px;
+            background: white;
+
+            .title-group{
+                padding: 20px;
+                overflow: hidden;
+
+                .title{
+                    float: left;
+                    font-size: 18px;
+                    color: $main_font_color;
+
+                }
+                .more{
+                    float: right;
+                    font-size: 14px;
+                    color: $theme_color;
+                }
+            }
+
+            .platform-group{
+                .title-group{
+                    border-bottom: 1px solid $line_color;
+                    .title{
+                        color: $main_font_color;
+                        font-size: 23px;
+                    }
+                }
+            }
+
+            .advertise-group{
+                img{
+                    width: 100%;
+
+                }
+            }
+
+            .focus-group{
+                padding: 0 20px;
+                overflow: hidden;
+
+                .left-group{
+                    width: 190px;
+                    float: left;
+                    li{
+                        width: 100%;
+                        height: 50px;
+                        line-height: 50px;
+                        overflow: hidden;
+                        a{
+                            float: left;
+                            color: $assist_font_color;
+                            font-size: 14px;
+                            margin-left: 65px;
+                        }
+
+                    }
+                }
+
+                .right-group{
+                    float: right;
+                    width: 100px;
+                    background: url("data:image/png;base64,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");
+                    background-size: 100%;
+                    background-repeat: no-repeat;
+
+                    .desc{
+                        margin-top: 100px;
+                        color: $assist_font_color;
+                        font-size: 12px;
+                    }
+                }
+            }
+
+            .hot-news-group{
+                .title-group{
+                    border-bottom: 1px solid $line_color;
+                    .title{
+                        color: $main_font_color;
+                        font-size: 23px;
+                    }
+                }
+
+                .hot-list-group{
+                    li{
+                        padding: 0 20px 20px;
+                        overflow: hidden;
+                        margin-top: 20px;
+                        border-bottom: 1px solid $line_color;
+
+                        .left-group{
+                            float: left;
+                            width: 204px;
+                            height: 72px;
+                            position: relative;
+                            .title{
+                                font-size: 16px;
+                                a{
+                                    color: $main_font_color;
+                                    &:hover{
+                                        color: $theme_color;
+                                    }
+                                }
+                            }
+
+                            .more{
+                                position: absolute;
+                                left: 0;
+                                right: 0;
+                                bottom: 0;
+                                font-size: 12px;
+
+                                .category{
+                                    color: $theme_color;
+                                    float: left;
+                                }
+                                .pub-time{
+                                    float: right;
+                                    color: $assist_font_color;
+                                }
+
+                            }
+                        }
+                        .right-group{
+                            float: right;
+                            width: 102px;
+                            height: 72px;
+
+                            img{
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

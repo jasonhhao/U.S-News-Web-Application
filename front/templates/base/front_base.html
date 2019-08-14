@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="csrftoken" content="{{ csrf_token }}">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1133044_8agbdpzoa1h.css">
+    <link rel="stylesheet" href="{% static 'css/common/auth.min.css' %}">
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/front_base.min.js' %}"></script>
+    <script src="{% static 'js/xfzajax.min.js' %}"></script>
+    <script src="{% static 'js/message.min.js' %}"></script>
+    {% block head %}
+
+    {% endblock %}
+
+
+</head>
+<body>
+    <header>
+        <div class="container">
+
+            <div class="logo-box">
+                <a href="/"></a>
+            </div>
+
+            <ul class="nav">
+                <li><a href="/">Hot News</a></li>
+                <li><a href="/search/">Search</a></li>
+            </ul>
+
+            <div class="auth-box">
+                <i class="iconfont icon-person"></i>
+
+                {% if user.is_authenticated %}
+                    <a href="#" class="authenticated-box">{{ user.username }}</a>
+                    <div class="user-more-box">
+                        <i class="triangle"></i>
+                        {% if user.is_staff %}
+                            <a href="{% url 'cms:index'%} ">management sys</a>
+                        {% endif %}
+
+                        <a href="{% url 'xfzauth:logout' %}">Logout</a>
+                    </div>
+
+                {% else %}
+                    <a href="#" class="signin-btn"> Login</a> /
+                    <a href="#" class="signup-btn">Register</a>
+                {% endif %}
+
+
+            </div>
+
+        </div>
+    </header>
+    {% block main %}
+
+    {% endblock %}
+    <footer class="footer">
+        <div class="top-group">
+            <div class="top-inner-group">
+                <div class="logo-box"></div>
+                <div class="detail-group">
+                    <div class="line1">
+                        <ul class="links">
+                            <li><a href="#">about us</a></li>
+                            <li><a href="#">Hot news</a></li>
+                            <li><a href="#">Search</a></li>
+                        </ul>
+
+                        <div class="about-us">
+                            <span class="title">Follow us: </span>
+                            <ul class="social-group">
+                                <li class="weixin">
+                                    <div class="wx-qrcode"></div>
+                                    <span class="text">my-facebook</span>
+                                </li>
+                                <li class="weibo"><a class="text" href="#">my-Linkedin</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="line2">
+                        <p class="address">Address: New York, US</p>
+                        <p class="contact">Tel: 607-761(8234)</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-group">©2019 Jasonhhao</div>
+
+    </footer>
+    <div class="mask-wrapper">
+        <div class="auth-wrapper">
+            <div class="close-wrapper">
+                <span class="close-btn icon-cc-close-square iconfont"></span>
+            </div>
+            <div class="auth-inner-wrapper">
+                <div class="scroll-wrapper">
+                    <div class="signin-group auth-group">
+                        <div class="top-group">
+                            <span class="title">Signin</span>
+                            <a href="javascript: void(0);" class="switch">Register></a>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="telephone" placeholder="phone number">
+                            </div>
+                             <div class="input-group">
+                                <input type="password" class="form-control" name="password" placeholder="password">
+                            </div>
+                            <div class="input-group">
+                                <label class="remember-label">
+                                    <input type="checkbox" name="remember" value="1">
+                                    remember me
+                                </label>
+                            </div>
+                            <div class="input-group">
+                                <input type="submit" class="submit-btn" value="Signin">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="signup-group auth-group">
+                        <div class="top-group">
+                            <span class="title">Register</span>
+                            <a href="javascript: void(0);" class="switch">Signin></a>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="telephone" placeholder="phone number">
+                            </div>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="username" placeholder="username">
+                            </div>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="password1" placeholder="password">
+                            </div>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="password2" placeholder="comfirm password">
+                            </div>
+                            <div class="input-group">
+                                <div class="short-input-group">
+                                    <input type="text" class="form-control" name="img_captcha" placeholder="auth code">
+                                </div>
+                                <div class="input-group-addon">
+                                    <img src="{% url 'xfzauth:img_captcha' %}" alt="" class="img-captcha" style="cursor: pointer">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <input type="submit" class="submit-btn" value="Register">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
