@@ -21,7 +21,7 @@
 ![Image of login](https://github.com/jasonhhao/U.S-News-Web-Application/blob/master/simple_images/6.png)
 
 ## CMS Edit News Page
-![Image of login](https://github.com/jasonhhao/U.S-News-Web-Application/blob/master/simple_images/1.png)
+![Image of login](https://github.com/jasonhhao/U.S-News-Web-Application/blob/master/simple_images/7.png)
 
 ## CMS News Category Page
 ![Image of login](https://github.com/jasonhhao/U.S-News-Web-Application/blob/master/simple_images/8.png)
